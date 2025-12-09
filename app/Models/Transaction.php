@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Transaction extends Model
 {
@@ -10,8 +11,8 @@ class Transaction extends Model
         'code',
         'buyer_id',
         'store_id',
-        'address',
         'address_id',
+        'address',
         'city',
         'postal_code',
         'shipping',
@@ -25,24 +26,32 @@ class Transaction extends Model
 
     protected $casts = [
         'shipping_cost' => 'decimal:2',
-        'tax' => 'decimal:2',
-        'grand_total' => 'decimal:2',
+        'tax'           => 'decimal:2',
+        'grand_total'   => 'decimal:2',
     ];
+
+    public static function generateTrackingNumber(): string
+    {
+        // contoh: KSP-20251207-AB12CD34
+        return 'KSP-' . now()->format('Ymd') . '-' . strtoupper(Str::random(8));
+    }
 
     public function buyer()
     {
         return $this->belongsTo(Buyer::class);
     }
+
     public function store()
     {
         return $this->belongsTo(Store::class);
     }
 
-    public function transactionDetails()
+    public function details()
     {
         return $this->hasMany(TransactionDetail::class);
     }
-    public function productReviews()
+
+    public function reviews()
     {
         return $this->hasMany(ProductReview::class);
     }

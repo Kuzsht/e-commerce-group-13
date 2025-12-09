@@ -1,12 +1,10 @@
 <?php
-
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-
     protected $fillable = [
         'store_id',
         'product_category_id',
@@ -27,22 +25,34 @@ class Product extends Model
     {
         return $this->belongsTo(Store::class);
     }
-    public function productCategory()
+
+    public function category()
     {
-        return $this->belongsTo(ProductCategory::class);
+        return $this->belongsTo(ProductCategory::class, 'product_category_id');
     }
 
-    public function productImages()
+    public function images()
     {
         return $this->hasMany(ProductImage::class);
     }
 
-    public function transactionDetails()
+    public function thumbnail()
     {
-        return $this->hasMany(TransactionDetail::class);
+        return $this->hasOne(ProductImage::class)->where('is_thumbnail', true);
     }
-    public function productReviews()
+
+    public function reviews()
     {
         return $this->hasMany(ProductReview::class);
+    }
+
+    public function averageRating()
+    {
+        return $this->reviews()->avg('rating') ?? 0;
+    }
+
+    public function sizes()
+    {
+        return $this->hasMany(ProductSize::class);
     }
 }

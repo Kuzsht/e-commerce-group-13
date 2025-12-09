@@ -1,14 +1,16 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ProductImage extends Model
+class ProductSize extends Model
 {
-    protected $fillable = ['product_id', 'image', 'is_thumbnail'];
-
-    protected $casts = [
-        'is_thumbnail' => 'boolean',
+    protected $fillable = [
+        'product_id',
+        'color',
+        'size',
+        'stock',
     ];
 
     public function product()

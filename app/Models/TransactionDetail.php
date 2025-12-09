@@ -6,15 +6,19 @@ use Illuminate\Database\Eloquent\Model;
 
 class TransactionDetail extends Model
 {
-
     protected $fillable = [
         'transaction_id',
         'product_id',
+        'product_size_id', 
+        'color',           
+        'size',            
         'qty',
+        'price',
         'subtotal',
     ];
 
     protected $casts = [
+        'price'    => 'decimal:2',
         'subtotal' => 'decimal:2',
     ];
 
@@ -26,5 +30,10 @@ class TransactionDetail extends Model
     public function product()
     {
         return $this->belongsTo(Product::class);
+    }
+
+    public function productSize()
+    {
+        return $this->belongsTo(ProductSize::class, 'product_size_id');
     }
 }
