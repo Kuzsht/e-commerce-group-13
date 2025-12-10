@@ -67,3 +67,9 @@ The following steps will guide you through the installation process for running 
 1. Fork the repository with the name "e-commerce-group-x"
 2. Complete the assignment tasks as specified.
 3. Create a pull request to our repository's main branch with your changes.
+
+
+Kelompok:
+
+Raditya Kusuma Wardhana 
+Hilmiy Rukmana Seputra
