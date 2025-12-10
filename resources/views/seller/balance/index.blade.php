@@ -22,17 +22,38 @@
         </div>
     </div>
 
-    {{-- SUMMARY CARDS --}}
-    <div class="dashboard-stats" style="margin-bottom: 2rem;">
-        <div class="stat-card">
-            <div class="stat-label">Total Income (Paid Transactions)</div>
-            <div class="stat-value">
+    <!-- Financial Summary Cards with Modern Design -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin: 2rem 0;">
+        <!-- Total Income Card -->
+        <div style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: white; padding: 2rem; border-radius: 1rem; box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3); position: relative; overflow: hidden;">
+            <div style="position: absolute; top: -20px; right: -20px; width: 100px; height: 100px; background: rgba(255,255,255,0.1); border-radius: 50%;"></div>
+            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 0.75rem; position: relative;">
+                <div style="width: 50px; height: 50px; background: rgba(255,255,255,0.2); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">
+                    💰
+                </div>
+                <div>
+                    <div style="font-size: 0.875rem; opacity: 0.95; font-weight: 600;">Total Income</div>
+                    <div style="font-size: 0.75rem; opacity: 0.8;">(Paid Transactions)</div>
+                </div>
+            </div>
+            <div style="font-size: 2rem; font-weight: 900; position: relative;">
                 Rp {{ number_format($totalIncome ?? 0, 0, ',', '.') }}
             </div>
         </div>
-        <div class="stat-card" style="background: linear-gradient(135deg, #ffc107, #e0a800); color:#000;">
-            <div class="stat-label">Total Withdrawn (Pending & Approved)</div>
-            <div class="stat-value">
+
+        <!-- Total Withdrawn Card -->
+        <div style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); color: white; padding: 2rem; border-radius: 1rem; box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3); position: relative; overflow: hidden;">
+            <div style="position: absolute; top: -20px; right: -20px; width: 100px; height: 100px; background: rgba(255,255,255,0.1); border-radius: 50%;"></div>
+            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 0.75rem; position: relative;">
+                <div style="width: 50px; height: 50px; background: rgba(255,255,255,0.2); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">
+                    📤
+                </div>
+                <div>
+                    <div style="font-size: 0.875rem; opacity: 0.95; font-weight: 600;">Total Withdrawn</div>
+                    <div style="font-size: 0.75rem; opacity: 0.8;">(Pending & Approved)</div>
+                </div>
+            </div>
+            <div style="font-size: 2rem; font-weight: 900; position: relative;">
                 Rp {{ number_format($totalWithdrawn ?? 0, 0, ',', '.') }}
             </div>
         </div>

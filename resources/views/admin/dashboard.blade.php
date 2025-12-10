@@ -4,152 +4,19 @@
 
 @push('styles')
 <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
-<style>
-.admin-hero {
-    background: linear-gradient(135deg, var(--dark-blue) 0%, #1e3a8a 100%);
-    color: white;
-    padding: 2rem;
-    border-radius: 16px;
-    margin-bottom: 2rem;
-    position: relative;
-    overflow: hidden;
-}
-
-.admin-hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 300px;
-    height: 300px;
-    background: rgba(255,255,255,0.05);
-    border-radius: 50%;
-    transform: translate(50%, -50%);
-}
-
-.admin-hero h1 {
-    font-size: 2.5rem;
-    margin-bottom: 0.5rem;
-    position: relative;
-    z-index: 1;
-}
-
-.admin-hero p {
-    opacity: 0.9;
-    position: relative;
-    z-index: 1;
-}
-
-.quick-actions {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1rem;
-    margin-bottom: 2rem;
-}
-
-.quick-action-card {
-    background: white;
-    padding: 1.5rem;
-    border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    text-decoration: none;
-    color: inherit;
-    transition: all 0.2s;
-    border: 2px solid transparent;
-}
-
-.quick-action-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-    border-color: var(--red);
-}
-
-.quick-action-icon {
-    width: 48px;
-    height: 48px;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-}
-
-.quick-action-title {
-    font-weight: 600;
-    color: var(--dark-blue);
-    margin-bottom: 0.25rem;
-}
-
-.quick-action-desc {
-    font-size: 0.85rem;
-    color: #666;
-}
-
-.stat-card {
-    position: relative;
-    overflow: hidden;
-}
-
-.stat-card::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 100px;
-    height: 100px;
-    background: rgba(255,255,255,0.1);
-    border-radius: 50%;
-    transform: translate(30%, -30%);
-}
-
-.recent-activity {
-    background: white;
-    border-radius: 12px;
-    padding: 1.5rem;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-}
-
-.activity-item {
-    display: flex;
-    gap: 1rem;
-    padding: 1rem;
-    border-bottom: 1px solid var(--border);
-}
-
-.activity-item:last-child {
-    border-bottom: none;
-}
-
-.activity-icon {
-    width: 40px;
-    height: 40px;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-}
-
-.activity-content {
-    flex: 1;
-}
-
-.activity-title {
-    font-weight: 600;
-    color: var(--dark-blue);
-    margin-bottom: 0.25rem;
-}
-
-.activity-time {
-    font-size: 0.85rem;
-    color: #999;
-}
-</style>
+<link rel="stylesheet" href="{{ asset('css/admin-dashboard.css') }}">
 @endpush
 
 @section('content')
 <div class="container">
+    <!-- Back Button -->
+    <a href="{{ route('home') }}" class="back-button">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        Back to Home
+    </a>
+    
     <div class="admin-hero">
         <h1>Welcome back, Admin! 👋</h1>
         <p>Here's what's happening with your e-commerce platform today</p>

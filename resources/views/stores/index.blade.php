@@ -28,14 +28,14 @@
                 </div>
                 <button type="submit" class="btn btn-primary">Search</button>
                 @if(request('search'))
-                    <a href="{{ route('stores.products', $store->id) }}" class="product-card">
+                    <a href="{{ route('stores.products', $store->id) }}" class="btn btn-primary" style="display: none;">
                 @endif
             </div>
         </form>
     </div>
 
     {{-- Grid stores --}}
-    <div class="product-grid">
+    <div class="product-grid" style="grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));">
         @forelse($stores as $store)
             <a href="{{ route('stores.products', $store->id) }}" class="product-card">
                 <div style="padding: 1.5rem;">
@@ -78,11 +78,11 @@
                         </div>
                     </div>
 
-                    <p style="color: #666; font-size: 0.9rem; line-height: 1.6; margin-bottom: 1rem;">
+                    <p style="display: none; color: #666; font-size: 0.9rem; line-height: 1.6; margin-bottom: 1rem;">
                         {{ \Illuminate\Support\Str::limit($store->about, 120) }}
                     </p>
 
-                    <span class="btn btn-outline" style="display: inline-block; margin-top: 0.5rem;">
+                    <span class="btn btn-outline" style="display: none; margin-top: 0.5rem;">
                         View Products
                     </span>
                 </div>

@@ -4,50 +4,19 @@
 
 @push('styles')
 <link rel="stylesheet" href="{{ asset('css/auth.css') }}">
-<style>
-.preview-container {
-    margin-top: 1rem;
-    text-align: center;
-}
-
-.logo-preview {
-    max-width: 200px;
-    max-height: 200px;
-    border-radius: 12px;
-    border: 2px solid var(--border);
-    display: none;
-}
-
-.upload-area {
-    border: 2px dashed var(--border);
-    border-radius: 12px;
-    padding: 2rem;
-    text-align: center;
-    cursor: pointer;
-    transition: all 0.3s;
-    background: var(--gray);
-}
-
-.upload-area:hover {
-    border-color: var(--red);
-    background: #fff5f5;
-}
-
-.upload-area.dragover {
-    border-color: var(--red);
-    background: #fff5f5;
-}
-
-.upload-icon {
-    font-size: 3rem;
-    color: #666;
-    margin-bottom: 1rem;
-}
-</style>
+<link rel="stylesheet" href="{{ asset('css/store-registration.css') }}">
 @endpush
 
 @section('content')
 <div class="container">
+    <!-- Back Button -->
+    <a href="{{ route('home') }}" class="back-button">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        Back to Home
+    </a>
+    
     <h1 style="color: var(--dark-blue); margin-bottom: 0.5rem;">Register Your Store</h1>
     <p style="color: #666; margin-bottom: 2rem;">Start selling on KICKSup by registering your store</p>
 

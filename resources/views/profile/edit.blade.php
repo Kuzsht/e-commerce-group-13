@@ -4,6 +4,8 @@
 
 @push('styles')
 <link rel="stylesheet" href="{{ asset('css/auth.css') }}">
+<link rel="stylesheet" href="{{ asset('css/profile.css') }}">
+<link rel="stylesheet" href="{{ asset('css/profile-edit.css') }}">
 @endpush
 
 @section('content')

@@ -2,150 +2,20 @@
 
 @section('title', $product->name . ' - KICKSup')
 
+@push('styles')
+<link rel="stylesheet" href="{{ asset('css/product-detail.css') }}">
+@endpush
+
 @section('content')
-<style>
-    .product-detail {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 3rem;
-        margin-top: 2rem;
-    }
-
-    .product-gallery {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-    }
-
-    .main-image {
-        width: 100%;
-        height: 500px;
-        object-fit: cover;
-        border-radius: 15px;
-        background: var(--gray);
-    }
-
-    .thumbnail-images {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 1rem;
-    }
-
-    .thumbnail-images img {
-        width: 100%;
-        height: 100px;
-        object-fit: cover;
-        border-radius: 10px;
-        cursor: pointer;
-        border: 2px solid transparent;
-        transition: all 0.3s;
-    }
-
-    .thumbnail-images img:hover {
-        border-color: var(--red);
-    }
-
-    .product-details h1 {
-        color: var(--dark-blue);
-        font-size: 2.5rem;
-        margin-bottom: 1rem;
-    }
-
-    .price {
-        font-size: 2.5rem;
-        font-weight: 700;
-        color: var(--red);
-        margin: 1.5rem 0;
-    }
-
-    .product-meta {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 2rem;
-        margin: 1.5rem 0;
-        padding: 1.5rem 0;
-        border-top: 2px solid var(--gray);
-        border-bottom: 2px solid var(--gray);
-    }
-
-    .meta-item {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .meta-label {
-        font-size: 0.9rem;
-        color: #666;
-    }
-
-    .meta-value {
-        font-weight: 600;
-        color: var(--dark-blue);
-    }
-
-    .reviews-section {
-        margin-top: 4rem;
-        padding-top: 2rem;
-        border-top: 2px solid var(--gray);
-    }
-
-    .review-item {
-        padding: 1.5rem;
-        background: var(--gray);
-        border-radius: 10px;
-        margin-bottom: 1rem;
-    }
-
-    .review-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 0.5rem;
-    }
-
-    .rating {
-        color: var(--yellow);
-    }
-
-    .size-selector {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.5rem;
-        margin-bottom: 0.5rem;
-    }
-
-    .size-button,
-    .color-button {
-        border: 1px solid var(--gray);
-        border-radius: 999px;
-        padding: 0.4rem 0.9rem;
-        background: #fff;
-        cursor: pointer;
-        font-size: 0.9rem;
-        transition: all 0.2s;
-    }
-
-    .size-button.selected,
-    .color-button.selected {
-        background: var(--dark-blue);
-        color: #fff;
-        border-color: var(--dark-blue);
-    }
-
-    .size-button.disabled {
-        opacity: 0.4;
-        cursor: not-allowed;
-        background: #f5f5f5;
-    }
-
-    @media (max-width: 768px) {
-        .product-detail {
-            grid-template-columns: 1fr;
-        }
-    }
-</style>
-
 <div class="container">
+    <!-- Back Button -->
+    <a href="{{ route('products.index') }}" class="back-button">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        Back to Products
+    </a>
+    
     <div class="product-detail">
         <div class="product-gallery">
             <img src="{{ $product->images->first() ? asset('images/products/' . $product->images->first()->image) : 'https://via.placeholder.com/500?text=No+Image' }}" 

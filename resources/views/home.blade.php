@@ -69,7 +69,7 @@
         <h2 class="section-title">Shop by Stores</h2>
         <p style="text-align: center; color: #666;">Find your favorite sneaker stores</p>
 
-        <div class="product-grid">
+        <div class="product-grid" style="display: flex; grid-template-columns: none; overflow-x: auto; overflow-y: hidden; scroll-behavior: smooth; padding: 1rem 0; gap: 1.5rem; scrollbar-width: none; -ms-overflow-style: none;">
             @forelse($stores as $store)
                 @php
                     $logo = $store->logo ?? null;
@@ -87,7 +87,7 @@
                     }
                 @endphp
 
-                <a href="{{ route('stores.products', $store->id) }}" class="product-card">
+                <a href="{{ route('stores.products', $store->id) }}" class="product-card" style="min-width: 280px; max-width: 320px; flex-shrink: 0;">
                     <div style="padding: 1.5rem;">
                         <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
                             @if($storeLogoUrl)
@@ -127,11 +127,11 @@
                             </div>
                         </div>
 
-                        <p style="color: #666; font-size: 0.9rem; line-height: 1.6; margin-bottom: 0.5rem;">
+                        <p style="display: none; color: #666; font-size: 0.9rem; line-height: 1.6; margin-bottom: 0.5rem;">
                             {{ \Illuminate\Support\Str::limit($store->about, 90) }}
                         </p>
 
-                        <span class="btn btn-outline" style="margin-top: 0.5rem;">
+                        <span class="btn btn-outline" style="display: none; margin-top: 0.5rem;">
                             View Store Products
                         </span>
                     </div>

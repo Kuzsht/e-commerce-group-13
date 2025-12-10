@@ -9,6 +9,14 @@
 
 @section('content')
 <div class="container">
+    <!-- Back Button -->
+    <a href="{{ route('home') }}" class="back-button">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        Back to Home
+    </a>
+    
     <h1 style="color: var(--dark-blue); margin-bottom: 0.5rem; font-size: 2rem;">Welcome, {{ $store->name }}!</h1>
     <p style="color: #666; margin-bottom: 2rem; font-size: 0.95rem;">Manage your store and products</p>
 

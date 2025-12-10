@@ -8,10 +8,14 @@
 
 @section('content')
 <div class="container">
-    <div style="margin-bottom: 2rem;">
-        <a href="{{ route('seller.dashboard') }}" style="color: var(--red); text-decoration: none; font-weight: 600;">← Back to Dashboard</a>
-    </div>
-
+    <!-- Back Button -->
+    <a href="{{ route('seller.dashboard') }}" class="back-button">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        Back to Dashboard
+    </a>
+    
     <h1 style="color: var(--dark-blue); margin-bottom: 2rem;">Edit Product</h1>
 
     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
