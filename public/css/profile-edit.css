@@ -1,0 +1,76 @@
+/* ===================================
+   EDIT PROFILE PAGE ENHANCEMENTS
+   =================================== */
+
+/* Edit Form Container */
+.edit-profile-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.edit-profile-card {
+    background: var(--white);
+    border-radius: var(--radius-xl);
+    padding: 2.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border: 1px solid var(--gray-100);
+    margin-bottom: 2rem;
+}
+
+.edit-profile-header {
+    background: linear-gradient(135deg, var(--dark-blue), #1e3a8a);
+    color: var(--white);
+    padding: 1.5rem 2.5rem;
+    margin: -2.5rem -2.5rem 2rem;
+    border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+}
+
+.edit-profile-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+/* Profile Picture Upload Section */
+.profile-picture-section {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    padding-bottom: 2rem;
+    border-bottom: 2px solid var(--gray-100);
+}
+
+.current-picture {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 0 auto 1.5rem;
+    position: relative;
+    padding: 5px;
+    background: linear-gradient(135deg, var(--red), var(--yellow));
+}
+
+.current-picture img,
+.current-picture .avatar-placeholder {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--white);
+}
+
+/* Responsive Edit Page */
+@media (max-width: 640px) {
+    .edit-profile-card {
+        padding: 1.5rem;
+    }
+
+    .edit-profile-header {
+        padding: 1.25rem 1.5rem;
+        margin: -1.5rem -1.5rem 1.5rem;
+    }
+
+    .current-picture {
+        width: 120px;
+        height: 120px;
+    }
+}

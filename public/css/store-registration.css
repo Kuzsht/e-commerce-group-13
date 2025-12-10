@@ -1,0 +1,112 @@
+/* ===================================
+   STORE REGISTRATION - Enhanced
+   Beautiful upload area with animations
+   =================================== */
+
+.preview-container {
+    margin-top: 1.5rem;
+    text-align: center;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.logo-preview {
+    max-width: 220px;
+    max-height: 220px;
+    border-radius: var(--radius-xl);
+    border: 3px solid var(--border);
+    display: none;
+    box-shadow: var(--shadow-lg);
+    transition: all var(--transition-base);
+}
+
+.logo-preview:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-xl);
+}
+
+.upload-area {
+    border: 3px dashed var(--border);
+    border-radius: var(--radius-xl);
+    padding: 3rem 2rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all var(--transition-base);
+    background: linear-gradient(135deg, rgba(230, 57, 70, 0.02) 0%, rgba(255, 214, 10, 0.02) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.upload-area::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, var(--red) 0%, var(--yellow) 100%);
+    opacity: 0;
+    transition: opacity var(--transition-base);
+}
+
+.upload-area:hover {
+    border-color: var(--red);
+    background: rgba(230, 57, 70, 0.05);
+    transform: scale(1.02);
+}
+
+.upload-area:hover::before {
+    opacity: 0.05;
+}
+
+.upload-area.dragover {
+    border-color: var(--red);
+    background: rgba(230, 57, 70, 0.1);
+    border-style: solid;
+    box-shadow: 0 0 0 4px rgba(230, 57, 70, 0.1);
+}
+
+.upload-area.dragover::before {
+    opacity: 0.1;
+}
+
+.upload-icon {
+    font-size: 4rem;
+    margin-bottom: 1.25rem;
+    animation: bounce 2s infinite;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.upload-area p {
+    position: relative;
+    z-index: 1;
+}
+
+.upload-area strong {
+    color: var(--red);
+    font-weight: 700;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 640px) {
+    .upload-area {
+        padding: 2rem 1.5rem;
+    }
+
+    .upload-icon {
+        font-size: 3rem;
+    }
+
+    .logo-preview {
+        max-width: 180px;
+        max-height: 180px;
+    }
+}
